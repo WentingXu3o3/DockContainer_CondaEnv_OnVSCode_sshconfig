@@ -69,6 +69,9 @@ conda env create --name 3dssg --file environment.yml
 ```
 conda create -n 3dssg pytorch=2.0.1 cudatoolkit=10.2
 ```
+```
+conda env update -n 3dssg --file environment_new.yml 
+```
 or
 ```
 conda create -n 3dssg pytorch=2.0.1 cudatoolkit=10.2 tensorboard trimesh -c conda-forge
