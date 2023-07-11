@@ -69,6 +69,17 @@ conda env create --name 3dssg --file environment.yml
 ```
 conda create -n 3dssg pytorch=2.0.1 cudatoolkit=10.2
 ```
+or
+```
+conda create -n 3dssg pytorch=2.0.1 cudatoolkit=10.2 tensorboard trimesh -c conda-forge
+pip install onnxruntime
+pip install torch-scatter
+pip install torch-sparse
+pip install torch-cluster
+pip install torch-spline-conv
+pip install torch-geometric
+pip install open3d
+```
 ## activate conda
 ```
 conda activate 3dssg
