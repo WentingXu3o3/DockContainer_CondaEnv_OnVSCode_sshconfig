@@ -97,3 +97,8 @@ if conda init needed
 source /opt/conda/etc/profile.d/conda.sh
 conda activate 3dssg
 ```
+## screen
+keep the container run something using screen
+screen -r
+ctrlA ctrlD to back it.
+ctrlA : quit to end the screen
