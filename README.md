@@ -75,6 +75,7 @@ conda env update -n 3dssg --file environment_new.yml
 or python should be 3.10/3.8/3.6 to pip open3d
 ```
 conda create -n 3dssg python=3.10
+codna create -n 3dssg python=3.10 pytorch=2.0.1 cudatoolkit=10.2 tensorboard trimesh
 and then run py 缺啥pip啥
 ```
 ```
