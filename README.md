@@ -97,7 +97,7 @@ if conda init needed
 source /opt/conda/etc/profile.d/conda.sh
 conda activate 3dssg
 ```
-## conda env export to get yaml then we can add to docker file
+## conda env export to get yaml then we can add to docker file for using the same conda environment next time
 ```
 #when conda activate
 conda env export > envrionment.yaml
