@@ -97,6 +97,83 @@ if conda init needed
 source /opt/conda/etc/profile.d/conda.sh
 conda activate 3dssg
 ```
+## conda env export to get yaml then we can add to docker file
+```
+#when conda activate
+conda env export > envrionment.yaml
+```
+
+change Dockerfile to
+```
+FROM pytorch/pytorch:2.0.0-cuda11.7-cudnn8-devel
+RUN apt-get update && apt-get install -y \
+    git \
+    libsparsehash-dev
+
+RUN pip install --upgrade git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0
+
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
+# Create the environment:
+COPY environment.yaml ./
+RUN conda env create -n 3dssg -f environment.yaml
+ 
+SHELL ["/bin/bash", "-c"]
+ 
+# RUN echo "source activate pytorch-gpu" > ~/.bashrc
+#ENV PATH /opt/conda/envs/env/bin:$PATH
+#ENV PATH /opt/conda/envs
+
+# PATH = [a, b, c, d]
+# PATH = [/opt/conda/envs/env/bin, ...PATH]
+# PATH = [/opt/conda/envs/env/bin, a, b, c, d]
+# PATH = [/opt/conda/envs/env/bin]
+ 
+CMD ["/bin/bash"] 
+```
+Now docker-compose.yml # save two workspace add more data to the docker.
+```
+version:  "3.7"
+services: 
+  devcontainer:
+    build: .
+    image: 3dssg
+    container_name: 3dssg
+    volumes:
+      - ..:/home/wenting/code/3DSSG
+      - /mnt/PRJ-ARIAGlasses:/home/wenting/code/data
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.gitconfig:/root/.gitconfig:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    entrypoint: bash
+    stdin_open: true
+    tty: true
+```
+devcontainer.json
+```
+{
+    "name": "3dssg",
+    "dockerComposeFile": "docker-compose.yml",
+    "runServices": ["devcontainer"],
+    "service": "devcontainer",
+    "workspaceFolder": "/home/wenting/code/3DSSG",
+    "customizations": {"vscode":{"extensions": [
+        "ms-python.python",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
+    ]}},
+    "shutdownAction": "none"
+   //当关闭vscode时docker container不会关掉 适用于下载或者跑长项目时
+}
+```
+## Docker folder
+![Screenshot 2023-07-20 at 22 38 14](https://github.com/WentingXu3o3/DockContainer_CondaEnv_OnVSCode/assets/59476953/f1b6f707-767a-4aec-b299-4f846a851f08)
+## Then can build new container.
+
 ## screen
 keep the container run something using screen
 screen -r
