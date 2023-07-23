@@ -60,6 +60,7 @@ RUN pip install torch-cluster==1.5.9\
                 torch-sparse==0.6.9\
                 tqdm==4.60.0
 ```
+6. open folder in container
 # Conda Envrionment 3dssg
 ## auto with yml file
 ```
