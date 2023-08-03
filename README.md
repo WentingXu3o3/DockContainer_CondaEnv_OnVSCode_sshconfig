@@ -92,6 +92,10 @@ pip install torch-geometric
 pip install open3d
 ```
 ## activate conda
+conda env list to see all the conda env
+```
+conda env list
+```
 ```
 conda activate 3dssg
 ```
