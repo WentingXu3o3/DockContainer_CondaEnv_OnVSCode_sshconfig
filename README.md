@@ -156,6 +156,33 @@ services:
     stdin_open: true
     tty: true
 ```
+```
+version:  "3.7"
+services: 
+  devcontainer:
+    build: .
+    image: 3ddsg
+    container_name: 3ddsg
+    volumes:
+      - /home/wenting/code/dsg_3d/.devcontainer:/dsg_3d/.devcontainer
+      - /home/wenting/code/dsg_3d/code:/dsg_3d/code
+      - /home/wenting/code/dsg_3d/data/3RScan:/dsg_3d/data/3RScan
+      - /home/wenting/code/dsg_3d/data/ScanNet:/dsg_3d/data/ScanNet
+      - /mnt/PRJ-ARIAGlasses/3RScan:/dsg_3d/data/3RScanAll
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.gitconfig:/root/.gitconfig:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    entrypoint: bash
+    stdin_open: true
+    tty: true
+
+```
+
+
 devcontainer.json
 ```
 {
