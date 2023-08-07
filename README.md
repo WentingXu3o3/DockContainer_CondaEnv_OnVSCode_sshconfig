@@ -214,3 +214,7 @@ keep the container run something using screen
 screen -r
 ctrlA ctrlD to back it.
 ctrlA : quit to end the screen
+# scp file
+```
+scp -r ubuntu:code/dsg_3d Desktop/python/ 
+```
