@@ -78,6 +78,7 @@ CMD ["/bin/bash"]
 dev container:  open folder in container
 choose the file root holds the .devcontainer
 The .dev and code file should in seperate folder then build the container under their directory
+
 ![Screenshot 2023-09-13 at 15 59 23](https://github.com/WentingXu3o3/DockContainer_CondaEnv_OnVSCode/assets/59476953/03f2e197-4a8b-41d3-9bac-5e23d9a3bacd)
 
 
