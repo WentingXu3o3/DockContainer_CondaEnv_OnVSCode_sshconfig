@@ -6,11 +6,11 @@ INStruction for building container and Conda Environment on VsCode
 3. add devcontainer.json file
 ```
 {
-    "name": "3dssg",
+    "name": "VLSAT",
     "dockerComposeFile": "docker-compose.yml",
     "runServices": ["devcontainer"],
     "service": "devcontainer",
-    "workspaceFolder": "/home/wenting/code/3DSSG",
+    "workspaceFolder": "/vlsat",
     "customizations": {"vscode":{"extensions": [
         "ms-python.python",
         "esbenp.prettier-vscode",
@@ -26,10 +26,14 @@ version:  "3.7"
 services: 
   devcontainer:
     build: .
-    image: 3dssg
-    container_name: 3dssg
+    image: vlsat
+    container_name: vlsat
     volumes:
-      - ..:/home/wenting/code/3DSSG
+      - /home/wenting/code/VLSAT/.devcontainer:/vlsat/.devcontainer
+      - /home/wenting/code/VLSAT/CVPR2023-VLSAT:/vlsat/code/CVPR2023-VLSAT
+      - /home/wenting/code/dsg_3d/data/3RScan:/vlsat/data/3RScanPart
+      - /home/wenting/code/dsg_3d/data/ScanNetAll:/vlsat/data/ScanNet
+      - /home/wenting/code/dsg_3d/data/3RScanAll:/vlsat/data/3RScan
       - ~/.ssh:/root/.ssh:ro
       - ~/.gitconfig:/root/.gitconfig:ro
     deploy:
@@ -50,19 +54,33 @@ RUN apt-get update && apt-get install -y \
     libsparsehash-dev
 
 RUN pip install --upgrade git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0
-RUN pip install torch-cluster==1.5.9\
-                torch-geometric==1.7.0\
-                torch-scatter==2.0.6\
-                torch-sparse==0.6.9\
-                tqdm==4.60.0\
-                torch-geometric==1.7.0\
-                torch-scatter==2.0.6\
-                torch-sparse==0.6.9\
-                tqdm==4.60.0
+
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
+# Create the environment:
+COPY environment.yaml ./
+RUN conda env create -n vlsat -f environment.yaml
+ 
+SHELL ["/bin/bash", "-c"]
+ 
+# RUN echo "source activate pytorch-gpu" > ~/.bashrc
+#ENV PATH /opt/conda/envs/env/bin:$PATH
+#ENV PATH /opt/conda/envs
+
+# PATH = [a, b, c, d]
+# PATH = [/opt/conda/envs/env/bin, ...PATH]
+# PATH = [/opt/conda/envs/env/bin, a, b, c, d]
+# PATH = [/opt/conda/envs/env/bin]
+ 
+CMD ["/bin/bash"] 
 ```
 6.command+shift+p
 dev container:  open folder in container
 choose the file root holds the .devcontainer
+The .dev and code file should in seperate folder then build the container under their directory
+![Screenshot 2023-09-13 at 15 59 23](https://github.com/WentingXu3o3/DockContainer_CondaEnv_OnVSCode/assets/59476953/03f2e197-4a8b-41d3-9bac-5e23d9a3bacd)
+
+
 # Conda Envrionment 3dssg
 ## auto with yml file
 ```
