@@ -230,10 +230,32 @@ devcontainer.json
 
 ## screen
 keep the container run something using screen
-screen -r
-ctrlA ctrlD to back it.
-ctrlA : quit to end the screen
-# scp file
+1. build a new screen
+```
+screen
+```
+2. in the new screen to quit and deattach but keep the screen
+```
+ctrl a+d
+```
+3. to see the screens already existing
+```
+screen -ls
+```
+4. to reattach one screen
+```
+screen -r <screen-id>
+```
+5. quit but not end is same with step2
+6. quit and end the screen
+```
+ctrl a
+```
+7.kill the screen in terminal
+```
+kill <screen-id>
+```
+# scp file 拷贝远程文件到本地
 ```
 scp -r ubuntu:code/dsg_3d Desktop/python/ 
 ```
