@@ -256,6 +256,60 @@ ctrl a
 kill <screen-id>
 ```
 # scp file 拷贝远程文件到本地
+for recursive all file copied
 ```
 scp -r ubuntu:code/dsg_3d Desktop/python/ 
+```
+for individual file
+```
+scp directory/becopied directory/topaste
+```
+
+# ssh config
+
+enter config file to save the host name and ip address and user name with port
+```
+nano ~/.ssh/config
+```
+IdentityFile: where to save your private key
+``` in config file
+Host ubuntu
+  HostName 10.70.xxx.xxx
+  User wenting
+  IdentityFile ~/.ssh/my_private_key
+
+Host aria
+  HostName 
+  User axxxx
+  Port xxxxx
+  IdentityFile ~/.ssh/my_private_key
+```
+build a private key and paired public key
+```
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/my_private_key -N ""
+```
+-N means no passphrase for this private key but also you can save a passphrase
+
+you can check with 
+```
+ls ~/.ssh/
+```
+and see my_private_key and my_private_key.pub
+
+then copy public key to the sever's authorized_keys:
+```
+scp ~/.ssh/my_private_key.pub your_username@your_server_ip:~/.ssh/authorized_keys
+```
+
+in sever terminal cat the public key to authorized_keys
+```
+cat ~/.ssh/my_private_key.pub >> ~/.ssh/authorized_keys
+```
+
+then done! you can ssh the sever without password and using a customized name!
+
+attention: if not work, check all .ssh and key file in this access mode.
+```
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
 ```
