@@ -310,7 +310,10 @@ then done! you can ssh the sever without password and using a customized name!
 ```
 ssh ubuntu
 ```
-
+also you can delete the public key on server after done.
+```
+rm ~/.ssh/my_private_key.pub
+```
 attention: if not work, check all .ssh and key file in this access mode.
 ```
 chmod 700 ~/.ssh
