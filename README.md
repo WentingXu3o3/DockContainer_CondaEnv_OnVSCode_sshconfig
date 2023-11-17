@@ -278,7 +278,7 @@ Host ubuntu
   User wenting
   IdentityFile ~/.ssh/my_private_key
 
-Host aria
+Host xxxx
   HostName 
   User axxxx
   Port xxxxx
@@ -307,6 +307,9 @@ cat ~/.ssh/my_private_key.pub >> ~/.ssh/authorized_keys
 ```
 
 then done! you can ssh the sever without password and using a customized name!
+```
+ssh ubuntu
+```
 
 attention: if not work, check all .ssh and key file in this access mode.
 ```
