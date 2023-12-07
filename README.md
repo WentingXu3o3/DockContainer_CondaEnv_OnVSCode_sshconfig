@@ -308,6 +308,7 @@ Host abcd
 then copy public key to the sever's authorized_keys:
 ```
 scp ~/.ssh/my_private_key.pub your_username@your_server_ip:~/.ssh/
+scp ~/.ssh/my_private_key.pub ubuntu:~/.ssh/
 ```
 if the server with port then will be:
 ```
