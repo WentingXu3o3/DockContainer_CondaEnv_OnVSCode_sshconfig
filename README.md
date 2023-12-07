@@ -270,7 +270,7 @@ ssh config 文件
 好处：自定义sever名称，不用每次输ip
 私钥和公钥：可以在本地保存一个私钥（可以不用输passphrase），生成的公钥同时保存在不同的sever上，然后再config文件中添加identifyfile从而每次自动用本地的私钥验证。远离每次都要输account密码
 
-build a private key and paired public key
+1. build a private key and paired public key
 ```
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/my_private_key -N ""
 ```
@@ -282,7 +282,7 @@ ls ~/.ssh/
 ```
 and see my_private_key and my_private_key.pub
 
-enter config file to save the host name and ip address and user name with port
+2. enter config file to save the host name and ip address and user name with port
 ```
 nano ~/.ssh/config
 ```
@@ -305,7 +305,7 @@ Host abcd
 
 
 
-then copy public key to the sever's authorized_keys:
+3. then copy public key to the sever's authorized_keys:
 ```
 scp ~/.ssh/my_private_key.pub your_username@your_server_ip:~/.ssh/
 scp ~/.ssh/my_private_key.pub ubuntu:~/.ssh/
@@ -320,13 +320,13 @@ scp ~/.ssh/my_private_key.pub abcd:~/.ssh/
 scp -r ~/ abcd:~/ means all files in folder copy
 ```
 
-in sever terminal cat the public key to authorized_keys
+4. in sever terminal cat the public key to authorized_keys
 ```
 cat ~/.ssh/my_private_key.pub >> ~/.ssh/authorized_keys
 ```
 
 
-then done! you can ssh the sever without password and using a customized name!
+5. then done! you can ssh the sever without password and using a customized name!
 ```
 ssh ubuntu
 ```
