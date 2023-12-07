@@ -314,6 +314,7 @@ scp -P XXXX ~/.ssh/my_private_key.pub your_username@your_server_ip:~/.ssh/
  (if already save the port and host name can be changed to)
 ```
 scp ~/.ssh/my_private_key.pub abcd:~/.ssh/
+scp -r ~/ abcd:~/ means all files in folder copy
 ```
 
 in sever terminal cat the public key to authorized_keys
