@@ -84,9 +84,13 @@ The .dev and code file should in seperate folder then build the container under 
 
 # Conda Envrionment 3dssg
 --What is the benefit if you build a conda environment in your docker container?
+
 --Firstly, if the docker container has not been delete, the conda would always there.
+
 --Secondly, if you want to build different test environment in the docker container, conda would help with
+
 --Thirdly, docker seems like still would change the python libraries, while conda would not.
+
 !! make sure you have activated the conda environment, with the root showing conda env name in the first. and the running root would be /opt/conda/"condaenvname"/something  /dockerworkspace/something/main.py
 ## auto with yml file
 ```
