@@ -348,3 +348,14 @@ attention: if not work, check all .ssh and key file in this access mode.
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 ```
+# gui from ubuntu to mac
+1. Download Xquartz on Mac
+2. in Xquartz start ssh -X ip
+3. if doesn't work, in mac nano ~/.ssh/config
+   add ForwardX11 yes
+Host ubuntu
+  HostName 10.70.152.164
+  User wenting
+  IdentityFile ~/.ssh/my_private_key
+  ForwardX11 yes
+4.try with xeyes
