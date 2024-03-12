@@ -350,12 +350,14 @@ chmod 600 ~/.ssh/authorized_keys
 ```
 # gui from ubuntu to mac
 1. Download Xquartz on Mac
-2. in Xquartz start ssh -X ip
-3. if doesn't work, in mac nano ~/.ssh/config
+2. in mac termianl export DISPLAY=:0
+3. try with xeyes in terminal to see the display
+4. in mac termianl start ssh -X ip
+5. if doesn't work, in mac nano ~/.ssh/config
    add ForwardX11 yes
 Host ubuntu
   HostName 10.70.152.164
   User wenting
   IdentityFile ~/.ssh/my_private_key
   ForwardX11 yes
-4.try with xeyes
+4.try with xeyes on ssh
