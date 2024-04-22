@@ -362,3 +362,24 @@ Host ubuntu
   IdentityFile ~/.ssh/my_private_key
   ForwardX11 yes
 4.try with xeyes on ssh
+
+# Remote error with VSCode
+Failed to connect to the remote extension host server (Error: WrappedError(WrappedError { message: "error creating temp download dir", original: "No space left on device (os error 28) at path \"/tmp/.tmpVfSb1P\"" }))
+
+1. check the space:
+disk usage -human readable
+```
+du -h
+```
+and if u want to see particular folder
+```
+du -h --max-depth=1 /
+```
+to read all folder in the root "/" and only shows the non null
+```
+du -h --max-depth=1 / 2>dev/null
+```
+
+```
+du -h --max-depth=1 /var
+```
