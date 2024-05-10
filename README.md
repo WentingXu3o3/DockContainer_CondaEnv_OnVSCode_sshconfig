@@ -21,6 +21,7 @@ INStruction for building container and Conda Environment on VsCode
 }
 ```
 5. add docker-compose.yml
+images name only could be in lowercase! 
 ```
 version:  "3.7"
 services: 
