@@ -133,6 +133,11 @@ if conda init needed
 source /opt/conda/etc/profile.d/conda.sh
 conda activate 3dssg
 ```
+or
+```
+conda inir
+```
+then kill the current terminal and get a new one to activate the conda env
 !! pay attention to the source of the debugging interpreter on the right down, it should change to opt/conda
 ## conda env export to get yaml then we can add to docker file for using the same conda environment next time
 ```
