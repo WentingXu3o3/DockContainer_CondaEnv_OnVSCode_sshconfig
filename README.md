@@ -389,8 +389,10 @@ du -h --max-depth=1 / 2>dev/null
 ```
 du -h --max-depth=1 /var
 ```
-#unzip all zip files in the sub directories of current directory
+# unzip all zip files in the sub directories of current directory
 
 ```
 find . -name "*.zip" -exec sh -c 'unzip -n -d "$(dirname "$1")" "$1"' _ {} \;
+find ./tasks -name "*.zip" -exec sh -c 'mkdir -p ./task_unzip/"$(dirname "${1#./tasks/}")" && unzip -n -d ./task_unzip/"$(dirname "${1#./tasks/}")" "$1"' _ {} \;
 ```
+
