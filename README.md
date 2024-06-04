@@ -389,3 +389,8 @@ du -h --max-depth=1 / 2>dev/null
 ```
 du -h --max-depth=1 /var
 ```
+#unzip all zip files in the sub directories of current directory
+
+```
+find . -name "*.zip" -exec sh -c 'unzip -n -d "$(dirname "$1")" "$1"' _ {} \;
+```
