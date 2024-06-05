@@ -280,7 +280,11 @@ for individual file
 ```
 scp directory/becopied directory/topaste
 ```
-
+for skip existing files:
+```
+rsync -au /dsg_3d/data/Matterport3D hostname@hostip:~/dsg_3d/data/
+rsync -au -e "ssh -p 22141" /dsg_3d/data/Matterport3D hostname@hostip:~/dsg_3d/data/
+```
 # ssh config
 ssh config 文件
 好处：自定义sever名称，不用每次输ip
