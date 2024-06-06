@@ -282,8 +282,9 @@ scp directory/becopied directory/topaste
 ```
 for skip existing files:
 ```
-rsync -au /dsg_3d/data/Matterport3D hostname@hostip:~/dsg_3d/data/
-rsync -au -e "ssh -p 22141" /dsg_3d/data/Matterport3D hostname@hostip:~/dsg_3d/data/
+
+rsync -avz --progress -e "ssh -p 22141" /dsg_3d/data/Matterport3D wenting@115.64.25.218:~/WentingCode/code/dsg_3d/data/
+
 ```
 # ssh config
 ssh config 文件
