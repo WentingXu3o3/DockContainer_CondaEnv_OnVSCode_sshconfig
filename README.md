@@ -129,13 +129,14 @@ conda env list
 conda activate 3dssg
 ```
 if conda init needed
+source where is the conda
 ```
 source /opt/conda/etc/profile.d/conda.sh
 conda activate 3dssg
 ```
 or
 ```
-conda inir
+conda init
 ```
 then kill the current terminal and get a new one to activate the conda env
 !! pay attention to the source of the debugging interpreter on the right down, it should change to opt/conda
