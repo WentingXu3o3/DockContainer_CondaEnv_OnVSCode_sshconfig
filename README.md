@@ -284,9 +284,10 @@ scp directory/becopied directory/topaste
 ```
 for skip existing files:
 ```
-
 rsync -avz --progress -e "ssh -p 22141" /dsg_3d/data/Matterport3D hostname@ip:~/WentingCode/code/dsg_3d/data/
-
+```
+```
+rsync -avz --progress --ignore-existing -e ssh ubuntu:code/dsg_3d/data/3RScanAll/ ./data/3RScanAll/
 ```
 # ssh config
 ssh config 文件
