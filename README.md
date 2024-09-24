@@ -191,8 +191,9 @@ services:
     deploy:
       resources:
         reservations:
-          devices:
-            - capabilities: [gpu]
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     entrypoint: bash
     stdin_open: true
     tty: true
