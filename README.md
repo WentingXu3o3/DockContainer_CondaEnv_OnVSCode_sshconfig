@@ -430,3 +430,12 @@ du -sh ./
 ```
 3. lsblk provides a tree-like structure to show the disk layout and usage
 4. ncdu .   a great interactive tool to dynamically check disk usage in the current directory and explore subdirectories.
+
+# .gitconfig is a directory ERROR
+1.check it is a directory or not
+```
+ls -ld ~/.gitconfig
+```
+2. mv ~/.gitconfig ~/.gitconfig_backup
+3. touch ~/.gitconfig
+
