@@ -98,7 +98,7 @@ The .dev and code file should in seperate folder then build the container under 
 ```
 conda env create --name 3dssg --file environment.yml
 ```
-## mannully build
+## mannully buil
 ```
 conda create -n 3dssg pytorch=2.0.1 cudatoolkit=10.2
 ```
@@ -120,6 +120,10 @@ pip install torch-cluster
 pip install torch-spline-conv
 pip install torch-geometric
 pip install open3d
+```
+or with file
+```
+conda env create -f .devcontainer/environment.yaml
 ```
 ## activate conda
 conda env list to see all the conda env
