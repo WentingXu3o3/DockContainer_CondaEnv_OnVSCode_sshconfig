@@ -241,6 +241,12 @@ devcontainer.json
    //当关闭vscode时docker container不会关掉 适用于下载或者跑长项目时
 }
 ```
+#activate gpu in docker container
+
+run on host to see
+```
+docker run --gpus all 3dssg:latest nvidia-smi
+```
 ## Docker folder
 ![Screenshot 2023-07-20 at 22 40 27](https://github.com/WentingXu3o3/DockContainer_CondaEnv_OnVSCode/assets/59476953/51bd7d38-eb68-4ad8-840f-dd84b1ba3405)
 
