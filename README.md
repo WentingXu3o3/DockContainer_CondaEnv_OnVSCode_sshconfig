@@ -247,6 +247,10 @@ run on host to see
 ```
 docker run --gpus all 3dssg:latest nvidia-smi
 ```
+or try with a light weight image (find a proper cuda version not higher than the cuda version in the host by nvidia-smi)
+```
+docker run --rm --gpus all nvidia/cuda:12.2.0-runtime-ubuntu20.04 nvidia-smi
+```
 ## Docker folder
 ![Screenshot 2023-07-20 at 22 40 27](https://github.com/WentingXu3o3/DockContainer_CondaEnv_OnVSCode/assets/59476953/51bd7d38-eb68-4ad8-840f-dd84b1ba3405)
 
