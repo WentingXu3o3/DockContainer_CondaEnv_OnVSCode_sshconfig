@@ -414,4 +414,4 @@ du -sh
 du -sh ./
 ```
 3. lsblk provides a tree-like structure to show the disk layout and usage
-
+4. ncdu .   a great interactive tool to dynamically check disk usage in the current directory and explore subdirectories.
