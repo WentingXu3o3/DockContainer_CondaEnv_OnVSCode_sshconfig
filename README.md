@@ -439,3 +439,23 @@ ls -ld ~/.gitconfig
 2. mv ~/.gitconfig ~/.gitconfig_backup
 3. touch ~/.gitconfig
 
+# someother errors
+1. if git clone really slow and take a lot of cpu memory. check ~/.gitconfig file. (it could be with tons of lines)
+
+2. if you meet this error 
+   ```
+   Traceback (most recent call last):
+   File "<stdin>", line 1, in <module>
+   RuntimeError: CUDA error: operation not supported
+   Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.   
+   ```
+   but ```print(torch.cuda.is_available()) is true.```
+   
+   this is not because your cuda version doesn't match with your pytorch verison
+   especially not becuase cuda 12.2 doesn't be supported by pytorch 2.4.1
+   This had better to reinstall your !nvidia-driver!
+   It is really interesting for cuda and pytorch version matching.
+
+   
+
+
