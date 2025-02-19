@@ -467,7 +467,39 @@ Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
    # This had better to reinstall your !nvidia-driver!
    It is really interesting for cuda and pytorch version matching.
    (FIND NVIDIA-Linux-x86_64-535.183.06.run or NVIDIA-Linux-x86_64-535.183.06-grid.run in folder)
+REMOVE CUDA by
+```
+sudo apt remove --purge "^cuda-.*" "^nvidia-.*"
+sudo apt autoremove
+sudo apt clean
+```
+check with 
+```
+find / -name "libcuda.so" 2>/dev/null #it should be nothing left
+which nvcc #it should be nothing here
+```
+and then
+```
+sudo ./NVIDIA-Linux-x86_64-535.183.06-grid.run
+```
+if failed with error in the blue screen
+```
+ ERROR: An NVIDIA kernel module 'nvidia-drm' appears to already be loaded in  
+         your kernel.  This may be because it is in use (for example, by an X  
+         server, a CUDA program, or the NVIDIA Persistence Daemon), but this   
+         may also happen if your kernel was configured without support for     
+         module unloading.  Please be sure to exit any programs that may be    
+         using the GPU(s) before attempting to upgrade your driver.  If no     
+         GPU-based programs are running, you know that your kernel supports    
+         module unloading, and you still receive this message, then an error   
+         may have occurred that has corrupted an NVIDIA kernel module's usage  
+         count, for which the simplest remedy is to reboot your computer. 
 
-   
-
-
+```
+then 
+```
+sudo killall -9 python3
+sudo killall -9 Xorg
+```
+then try again.
+After installation, nvidia-smi should work again with pytorch OKAY for cuda
