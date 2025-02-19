@@ -449,12 +449,24 @@ ls -ld ~/.gitconfig
    RuntimeError: CUDA error: operation not supported
    Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.   
    ```
-   but ```print(torch.cuda.is_available()) is true.```
+   OR
+   ```
+   >>> import torch
+    >>> torch.zeros(2,3).to("cuda")
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    RuntimeError: CUDA error: operation not supported
+    CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+    For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+    Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+   ```
+   but ```print(torch.cuda.is_available()) is true. and NVIDIA-SMI is fine```
    
    this is not because your cuda version doesn't match with your pytorch verison
    especially not becuase cuda 12.2 doesn't be supported by pytorch 2.4.1
-   This had better to reinstall your !nvidia-driver!
+   # This had better to reinstall your !nvidia-driver!
    It is really interesting for cuda and pytorch version matching.
+   (FIND NVIDIA-Linux-x86_64-535.183.06.run or NVIDIA-Linux-x86_64-535.183.06-grid.run in folder)
 
    
 
