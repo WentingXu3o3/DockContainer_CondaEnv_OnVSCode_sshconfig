@@ -442,7 +442,7 @@ ls -ld ~/.gitconfig
 # someother errors
 1. if git clone really slow and take a lot of cpu memory. check ~/.gitconfig file. (it could be with tons of lines)
 
-2. if you meet this error 
+2. if you meet this error *CUDA ERROR*
    ```
    Traceback (most recent call last):
    File "<stdin>", line 1, in <module>
@@ -450,17 +450,17 @@ ls -ld ~/.gitconfig
    Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.   
    ```
    OR
-   ```
-   >>> import torch
-    >>> torch.zeros(2,3).to("cuda")
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    RuntimeError: CUDA error: operation not supported
-    CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
-    For debugging consider passing CUDA_LAUNCH_BLOCKING=1
-    Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
-   ```
-   but ```print(torch.cuda.is_available()) is true. and NVIDIA-SMI is fine```
+   
+>>> import torch
+>>> torch.zeros(2,3).to("cuda")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: CUDA error: operation not supported
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+   
+   but ```print(torch.cuda.is_available())``` is true. and NVIDIA-SMI is fine
    
    this is not because your cuda version doesn't match with your pytorch verison
    especially not becuase cuda 12.2 doesn't be supported by pytorch 2.4.1
