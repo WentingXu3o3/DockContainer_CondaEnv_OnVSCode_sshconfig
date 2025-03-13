@@ -503,3 +503,21 @@ sudo killall -9 Xorg
 ```
 then try again.
 After installation, nvidia-smi should work again with pytorch OKAY for cuda
+
+## NVIDIA RUNTIME ERROR
+
+Error response from daemon: exec: "nvidia-container-runtime-hook": executable file not found in $PATH
+
+1. Check if nvidia-container-runtime is installed
+```nvidia-container-runtime --version````
+Not installed
+
+2. Install it
+   ```
+   sudo apt update
+    sudo apt install -y nvidia-container-runtime
+   ```
+3.test
+```docker run --rm --gpus all nvidia/cuda:12.2-base nvidia-smi```
+
+
