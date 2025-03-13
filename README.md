@@ -518,6 +518,6 @@ Not installed
     sudo apt install -y nvidia-container-runtime
    ```
 3.test
-```docker run --rm --gpus all nvidia/cuda:12.2-base nvidia-smi```
+```docker run --rm --gpus all hello-world nvidia-smi```
 
 
