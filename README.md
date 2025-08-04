@@ -303,7 +303,14 @@ rsync -avz --progress -e "ssh -p 22141" /dsg_3d/data/Matterport3D hostname@ip:~/
 ```
 ```
 rsync -avz --progress --ignore-existing -e ssh ubuntu:code/dsg_3d/data/3RScanAll/ ./data/3RScanAll/
+or 
+rsync -avz --progress --ignore-existing -e ssh code/dsg_3d/data/3RScanAll/ ubuntu:./data/3RScanAll/
 ```
+compare two folder on different devices:
+```
+rsync -avnc -e ssh ./RIO10/ ubuntu:/home/wenting/code/dsg_3d/data/RIO10/
+```
+
 # ssh config
 ssh config 文件
 好处：自定义sever名称，不用每次输ip
