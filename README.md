@@ -310,6 +310,10 @@ compare two folder on different devices:
 ```
 rsync -avnc -e ssh ./RIO10/ ubuntu:/home/wenting/code/dsg_3d/data/RIO10/
 ```
+```
+rsync -rlctP <your_unikey>@research-data-int.sydney.edu.au:/rds/PRJ-<rds_project>/<path_to_project_data> <pvc_mount_point>/<path_to_pvc_data>
+rsync -rlctP <pvc_mount_point>/<path_to_pvc_data> <your_unikey>@research-data-int.sydney.edu.au:/rds/PRJ-<rds_project>/<path_to_project_data> 
+```
 
 # ssh config
 ssh config 文件
