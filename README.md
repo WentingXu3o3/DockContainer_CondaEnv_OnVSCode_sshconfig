@@ -321,7 +321,9 @@ rsync -avz --progress --ignore-existing --no-perms --inplace \
   -e ssh <pvc_mount_point>/<path_to_pvc_data> \
   <your_unikey>@research-data-int.sydney.edu.au:/rds/PRJ-<rds_project>/<path_to_project_data> 
 ```
-
+```
+sftp -r unikey@research-data-ext.sydney.edu.au:/rds/PRJ- ./
+```
 # ssh config
 ssh config 文件
 好处：自定义sever名称，不用每次输ip
