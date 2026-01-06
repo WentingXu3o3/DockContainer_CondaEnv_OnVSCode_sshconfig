@@ -324,6 +324,20 @@ rsync -avz --progress --ignore-existing --no-perms --inplace \
 ```
 sftp -r unikey@research-data-ext.sydney.edu.au:/rds/PRJ- ./
 ```
+```
+sftp unikey@research-data-ext.sydney.edu.au
+sftp> cd ..
+sftp> ls
+wexu2476  
+sftp> cd ..
+sftp> ls
+home  rds   
+sftp> cd rds
+sftp> ls
+sftp> cd PRJ-3DSU    
+sftp> put ./xxx.npy  #my local current directory                      
+sftp> bye
+```
 # ssh config
 ssh config 文件
 好处：自定义sever名称，不用每次输ip
