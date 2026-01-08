@@ -326,6 +326,7 @@ sftp -r unikey@research-data-ext.sydney.edu.au:/rds/PRJ- ./
 ```
 ```
 sftp unikey@research-data-ext.sydney.edu.au
+sftp unikey@research-data-int.sydney.edu.au:/rds/PRJ-
 sftp> cd ..
 sftp> ls
 wexu2476  
