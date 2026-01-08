@@ -335,7 +335,8 @@ home  rds
 sftp> cd rds
 sftp> ls
 sftp> cd PRJ-3DSU    
-sftp> put ./xxx.npy  #my local current directory                      
+sftp> put ./xxx.npy  #my local current directory
+or put -r ./xxx ./ # directroy             
 sftp> bye
 ```
 # ssh config
